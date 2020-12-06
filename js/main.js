@@ -17,9 +17,9 @@ const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const randomColor = () => {
-  const indexColor = randomIntegerFromInterval(0, colors.length - 1);
-  const color = colors[indexColor];
+const setRandomColor = () => {
+  const colorIndex = randomIntegerFromInterval(0, colors.length - 1);
+  const color = colors[colorIndex];
 
   refs.bodyRef.style.backgroundColor = color;
 };
@@ -27,7 +27,7 @@ const randomColor = () => {
 let intervalId = null;
 
 refs.btnStart.addEventListener('click', event => {
-  intervalId = setInterval(randomColor, 1000);
+  intervalId = setInterval(setRandomColor, 1000);
   event.target.disabled = true;
 });
 
